@@ -11,23 +11,33 @@
 	<body>
 		<script src="js/three.js"></script>
 		<script>
+			// Setup scene
 			var scene = new THREE.Scene();
+			// Setup camera, using perspectiveCamera. Set field of view, aspect ratio, and clipping planes
             var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-
+			
+			// Build Renderer
             var renderer = new THREE.WebGLRenderer();
+			// Set size of render (going with the size of the browser window)
             renderer.setSize( window.innerWidth, window.innerHeight );
+			//Add renderer element
             document.body.appendChild( renderer.domElement );
 
+			// Adding the 3D cone using ConeGeometry object
             var geometry = new THREE.ConeGeometry( 5, 20, 32 );
+			// Adding Mesh object/texture using MeshBasicMaterial
             var material = new THREE.MeshBasicMaterial( { color: 0x99FF00 } );
             var cone = new THREE.Mesh( geometry, material );
             scene.add( cone );
 
+			// Set cmaera position to 40 to make sure cone is within proper view
             camera.position.z = 40;
 
+			// Render loop to draw cone animation
             var render = function () {
                 requestAnimationFrame( render );
 
+				// Rotates cone
                 cone.rotation.x += 0.06;
                 cone.rotation.y += 0.1;
 
