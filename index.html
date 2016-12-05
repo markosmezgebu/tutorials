@@ -11,30 +11,7 @@
 	<body>
 		<script src="js/three.js"></script>
 		<script>
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-
-			var renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
-
-			var geometry = new THREE.ConeGeometry( 5, 20, 32 );
-			var material = new THREE.MeshBasicMaterial( { color: 0x99FF00 } );
-			var cone = new THREE.Mesh( geometry, material );
-			scene.add( cone );
-
-			camera.position.z = 40;
-
-			var render = function () {
-				requestAnimationFrame( render );
-
-				cone.rotation.x += 0.06;
-				cone.rotation.y += 0.1;
-
-				renderer.render(scene, camera);
-			};
-
-			render();
+			// Add your javascript here!
 		</script>
 	</body>
 </html>
